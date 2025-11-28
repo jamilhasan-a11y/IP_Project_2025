@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - Student Information Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header home-header">
+            <h1>Log In</h1>
+            <p>Access your account</p>
+        </header>
+
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="signin.html">Sign In</a></li>
+                <li><a href="login.html">Log In</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <a href="index.html" class="back-btn">← Back to Home</a>
+
+            <section class="form-section">
+                <h2>Log In to Your Account</h2>
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="form-group" style="text-align: left;">
+                        <label style="font-weight: normal; cursor: pointer;">
+                            <input type="checkbox" id="remember" name="remember" style="width: auto; margin-right: 8px;">
+                            Remember me
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Log In</button>
+                </form>
+
+                <p style="text-align: center; margin-top: 20px; color: #555;">
+                    Don't have an account? <a href="signin.html" style="color: #4a90e2; text-decoration: none; font-weight: bold;">Sign In</a>
+                </p>
+
+                <p style="text-align: center; margin-top: 10px;">
+                    <a href="#" style="color: #e74c3c; text-decoration: none; font-size: 0.95em;">Forgot Password?</a>
+                </p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Student Information Portal. All rights reserved.</p>
+            <p>Contact: mhcu2024@gmail.com</p>
+        </footer>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            
+            if (password.length < 6) {
+                alert('Invalid password! Password must be at least 6 characters.');
+                return false;
+            }
+            
+            alert('Login successful!\nWelcome back to Student Information Portal.');
+            
+            document.getElementById('loginForm').reset();
+            
+            setTimeout(function() {
+                window.location.href = 'index.html';
+            }, 1000);
+            
+            return false;
+        }
+    </script>
+</body>
+</html>
